@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Étudiants - BTS CIEL</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="students.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gestion des Étudiants - BTS CIEL</h1>
+            <div class="session-selector">
+                <label for="sessionYear">Session d'examen :</label>
+                <select id="sessionYear">
+                    <!-- Générer dynamiquement les options des 5 dernières années -->
+                </select>
+            </div>
+        </header>
+
+        <main>
+            <!-- Formulaire d'ajout d'étudiant -->
+            <section class="add-student-section">
+                <h2>Ajouter un étudiant</h2>
+                <form id="addStudentForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="studentName">Nom :</label>
+                            <input type="text" id="studentName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentFirstName">Prénom :</label>
+                            <input type="text" id="studentFirstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentId">Numéro étudiant :</label>
+                            <input type="text" id="studentId" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Ajouter l'étudiant</button>
+                </form>
+            </section>
+
+            <!-- Liste des étudiants -->
+            <section class="student-list-section">
+                <h2>Liste des étudiants</h2>
+                <div class="table-responsive">
+                    <table id="studentsTable">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Numéro étudiant</th>
+                                <th>Semestres évalués</th>
+                                <th>Note finale (dernier semestre)</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentsList">
+                            <!-- Les étudiants seront ajoutés ici dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Boutons d'exportation et d'importation -->
+            <section class="data-management-section">
+                <div class="export-import-container">
+                    <button onclick="exportAllStudents()" class="btn-export-all">
+                        Exporter toutes les données
+                    </button>
+                    <div class="import-container">
+                        <label for="importFile" class="btn-import">Importer depuis JSON</label>
+                        <input type="file" id="importFile" accept=".json" style="display: none;">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="studentManager.js"></script>
+    <script>
+        // Fonction pour synchroniser les données entre les pages
+        function synchronizeData() {
+            // Vérifier si un étudiant est dans le sessionStorage
+            const currentStudent = sessionStorage.getItem('currentStudent');
+            if (currentStudent) {
+                try {
+                    const studentData = JSON.parse(currentStudent);
+                    
+                    // Obtenir la session actuelle
+                    const currentSession = localStorage.getItem('bts-ciel-current-session') || new Date().getFullYear().toString();
+                    
+                    // Charger les étudiants de la session actuelle
+                    const storageKey = `bts-ciel-students-${currentSession}`;
+                    const storedStudents = localStorage.getItem(storageKey);
+                    
+                    if (storedStudents) {
+                        const students = JSON.parse(storedStudents);
+                        
+                        // Trouver l'étudiant correspondant
+                        const studentIndex = students.findIndex(s => s.id === studentData.id);
+                        
+                        if (studentIndex !== -1 && studentData.evaluations) {
+                            // Mettre à jour les évaluations de l'étudiant
+                            students[studentIndex].evaluations = studentData.evaluations;
+                            
+                            // Sauvegarder la mise à jour
+                            localStorage.setItem(storageKey, JSON.stringify(students));
+                            console.log("Données synchronisées depuis sessionStorage");
+                            
+                            // Si studentManager est disponible, mettre à jour la liste des étudiants
+                            if (window.studentManager) {
+                                window.studentManager.students = students;
+                                window.studentManager.updateStudentList();
+                            }
+                        }
+                    }
+                    
+                    // Une fois la synchronisation effectuée, effacer les données de sessionStorage
+                    // pour éviter des synchronisations inutiles lors des navigations futures
+                    sessionStorage.removeItem('currentStudent');
+                } catch (e) {
+                    console.error("Erreur lors de la synchronisation:", e);
+                }
+            }
+        }
+        
+        // Synchroniser les données au chargement de la page
+        document.addEventListener('DOMContentLoaded', synchronizeData);
+    </script>
+</body>
+</html>

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Évaluation BTS CIEL</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GRILLE D'ÉVALUATION ÉPREUVE E5 - BTS CIEL</h1>
+        
+        <!-- Remplacer la section informations étudiant par -->
+<div class="top-bar">
+    <a href="index.html" class="back-link">← Retour à la liste des étudiants</a>
+</div>
+
+<div class="student-selection">
+    <label for="studentSelect">Sélectionner un étudiant :</label>
+    <select id="studentSelect" onchange="evaluationManager.changeStudent()">
+        <option value="">Choisir un étudiant...</option>
+        <!-- Les étudiants seront ajoutés ici dynamiquement -->
+    </select>
+</div>
+
+<div class="student-info">
+    <div class="student-card">
+        <div class="student-header">
+            <h2>Informations de l'étudiant</h2>
+        </div>
+        <div class="student-details">
+            <div class="info-row">
+                <span class="info-label">Nom :</span>
+                <span id="studentName" class="info-value"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Prénom :</span>
+                <span id="studentFirstName" class="info-value"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Numéro étudiant :</span>
+                <span id="studentId" class="info-value"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Semestre :</span>
+                <select id="semesterSelect" onchange="evaluationManager.changeSemester()">
+                    <!-- Les semestres seront ajoutés dynamiquement -->
+                </select>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Date d'évaluation :</span>
+                <span id="evaluationDate" class="info-value"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="competence-section">
+    <h2>C02 : ORGANISER UNE INTERVENTION (20%)</h2>
+    <table class="eval-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Niveau 1<br>Non réalisé</th>
+                <th>Niveau 2<br>Réalisation partielle</th>
+                <th>Niveau 3<br>Réalisation satisfaisante</th>
+                <th>Niveau 4<br>Réalisation très satisfaisante</th>
+            </tr>
+            <tr>
+                <th>Critères d'évaluation de la compétence</th>
+                <th>0 observable</th>
+                <th>1 observable</th>
+                <th>2 à 3 observables</th>
+                <th>4 observables</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Premier critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">25%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Les différents interlocuteurs et ressources sont identifiés</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>Le rôle des différents interlocuteurs est connu.</li>
+                                <li>La liste des équipements/logiciels à prévoir est exhaustive.</li>
+                                <li>Les impacts des exigences sur les autres systèmes sont identifiés.</li>
+                                <li>Les tâches professionnelles à exécuter sont identifiées.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c02-1" value="0" data-weight="25"></td>
+                <td><input type="radio" name="c02-1" value="1" data-weight="25"></td>
+                <td><input type="radio" name="c02-1" value="2.5" data-weight="25"></td>
+                <td><input type="radio" name="c02-1" value="4" data-weight="25"></td>
+            </tr>
+            <!-- Deuxième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">25%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Le cahier des charges préliminaire est complété et les ressources permettant de répondre au cahier des charges sont décrites</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>Les fonctions principales du cahier des charges peuvent être complétées par des fiches d'intervention.</li>
+                                <li>Chaque fiche d'intervention contient la liste des étapes de l'intervention et les ressources nécessaires.</li>
+                                <li>Chaque fiche d'intervention est détaillée avec un plan d'adressage et des diagrammes (réseaux, SYSML ...)</li>
+                                <li>La continuité de service est prise en compte.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c02-2" value="0" data-weight="25"></td>
+                <td><input type="radio" name="c02-2" value="1" data-weight="25"></td>
+                <td><input type="radio" name="c02-2" value="2.5" data-weight="25"></td>
+                <td><input type="radio" name="c02-2" value="4" data-weight="25"></td>
+            </tr>
+            <!-- Troisième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">20%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Le planning prévisionnel est interprété</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>Un outil de répartition des tâches est utilisé (Gantt, Kanban ...)</li>
+                                <li>Les intervenants et leurs rôles sont identifiés.</li>
+                                <li>Les dépendances entre les tâches sont identifiées.</li>
+                                <li>Le chemin critique est identifié et quantifié.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c02-3" value="0" data-weight="20"></td>
+                <td><input type="radio" name="c02-3" value="1" data-weight="20"></td>
+                <td><input type="radio" name="c02-3" value="2.5" data-weight="20"></td>
+                <td><input type="radio" name="c02-3" value="4" data-weight="20"></td>
+            </tr>
+            <!-- Quatrième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">30%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">
+                            - Face à un ensemble de faits, des actions appropriées à poser sont décidées<br>
+                            - De façon à poser des actions au moment opportun dans un contexte déterminé, la prise en charge est adaptée selon les responsabilités<br>
+                            - Le travail est préparé de façon à satisfaire les exigences de qualité, d'efficacité et d'échéancier
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c02-4" value="0" data-weight="30"></td>
+                <td><input type="radio" name="c02-4" value="1" data-weight="30"></td>
+                <td><input type="radio" name="c02-4" value="2.5" data-weight="30"></td>
+                <td><input type="radio" name="c02-4" value="4" data-weight="30"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">
+                    <div class="eval-results">
+                        <span>Total : <span id="total-c02">0</span>/3</span>
+                        <span>Curseur : <span id="curseur-c02">0</span></span>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<!-- C06 : VALIDER UN SYSTÈME INFORMATIQUE -->
+<div class="competence-section">
+    <h2>C06 : VALIDER UN SYSTÈME INFORMATIQUE (20%)</h2>
+    <table class="eval-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Niveau 1<br>Non réalisé</th>
+                <th>Niveau 2<br>Réalisation partielle</th>
+                <th>Niveau 3<br>Réalisation satisfaisante</th>
+                <th>Niveau 4<br>Réalisation très satisfaisante</th>
+            </tr>
+            <tr>
+                <th>Critères d'évaluation de la compétence</th>
+                <th>0 observable</th>
+                <th>1 observable</th>
+                <th>2 à 3 observables</th>
+                <th>4 observables</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Premier critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">20%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Les environnements sont choisis et justifiés, les données de l'entreprise sont identifiées</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>Le périmètre d'intervention est identifié en utilisant un diagramme réseau et/ou SYSML.</li>
+                                <li>Les interactions et les caractéristiques des communications avec les autres systèmes sont identifiées.</li>
+                                <li>Les outils de diagnostic sont identifiés.</li>
+                                <li>Les paramétrages existants sont identifiés.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c06-1" value="0" data-weight="20"></td>
+                <td><input type="radio" name="c06-1" value="1" data-weight="20"></td>
+                <td><input type="radio" name="c06-1" value="2.5" data-weight="20"></td>
+                <td><input type="radio" name="c06-1" value="4" data-weight="20"></td>
+            </tr>
+            <!-- Deuxième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">20%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Les procédures de test sont établies</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>Un document listant les exigences et les tests associés peut être rédigé sous forme d'un cahier de recette.</li>
+                                <li>Le document est organisé en suivant une démarche logique.</li>
+                                <li>Le document est exhaustif, chaque test est associé à une exigence.</li>
+                                <li>Une automatisation des tests est proposée.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c06-2" value="0" data-weight="20"></td>
+                <td><input type="radio" name="c06-2" value="1" data-weight="20"></td>
+                <td><input type="radio" name="c06-2" value="2.5" data-weight="20"></td>
+                <td><input type="radio" name="c06-2" value="4" data-weight="20"></td>
+            </tr>
+            <!-- Troisième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">10%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Les tests (unitaires, d'intégration et autres) sont appliqués</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>Les tests sont réalisés conformément aux procédures avec les appareils ou logiciels adéquats.</li>
+                                <li>Les outils de diagnostic sont correctement utilisés.</li>
+                                <li>Le résultat de chaque test et son incertitude, est correctement appréhendé.</li>
+                                <li>Le cahier de recette peut être complété avec les résultats obtenus.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c06-3" value="0" data-weight="10"></td>
+                <td><input type="radio" name="c06-3" value="1" data-weight="10"></td>
+                <td><input type="radio" name="c06-3" value="2.5" data-weight="10"></td>
+                <td><input type="radio" name="c06-3" value="4" data-weight="10"></td>
+            </tr>
+            <!-- Quatrième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">10%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Les résultats de tests sont synthétisés pour évaluer la conformité globale</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>Les résultats des tests et leurs incertitudes sont correctement interprétés.</li>
+                                <li>Les anomalies sont identifiées, le PV d'anomalie est rédigé.</li>
+                                <li>Un diagnostic des anomalies est posé, la documentation relative à l'installation est éventuellement mise à jour.</li>
+                                <li>Un bilan au regard des exigences est établi.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c06-4" value="0" data-weight="10"></td>
+                <td><input type="radio" name="c06-4" value="1" data-weight="10"></td>
+                <td><input type="radio" name="c06-4" value="2.5" data-weight="10"></td>
+                <td><input type="radio" name="c06-4" value="4" data-weight="10"></td>
+            </tr>
+            <!-- Cinquième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">10%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Le document de recette est validé par le client et la recette est réalisée avec le client</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>Les étapes de recette sont énoncées clairement au client.</li>
+                                <li>Le vocabulaire utilisé est adapté au client. Le discours est clair et structuré.</li>
+                                <li>Le cahier de recette (PV de livraison) est rempli et validé avec le client.</li>
+                                <li>Le client pourra être conseillé sur les futures actions de maintenance du système et les points de vigilance de la cybersécurité.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c06-5" value="0" data-weight="10"></td>
+                <td><input type="radio" name="c06-5" value="1" data-weight="10"></td>
+                <td><input type="radio" name="c06-5" value="2.5" data-weight="10"></td>
+                <td><input type="radio" name="c06-5" value="4" data-weight="10"></td>
+            </tr>
+            <!-- Sixième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">30%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">
+                            - Le travail est préparé de façon à satisfaire les exigences de qualité, d'efficacité et d'échéancier<br>
+                            - Le calme est conservé de façon constante dans des situations particulières, tout en persévérant dans la tâche jusqu'à l'atteinte du résultat sans se décourager<br>
+                            - Face à un ensemble de faits, des actions appropriées à poser sont décidées
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c06-6" value="0" data-weight="30"></td>
+                <td><input type="radio" name="c06-6" value="1" data-weight="30"></td>
+                <td><input type="radio" name="c06-6" value="2.5" data-weight="30"></td>
+                <td><input type="radio" name="c06-6" value="4" data-weight="30"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">
+                    <div class="eval-results">
+                        <span>Total : <span id="total-c06">0</span>/3</span>
+                        <span>Curseur : <span id="curseur-c06">0</span></span>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<!-- C09 : INSTALLER UN RÉSEAU INFORMATIQUE -->
+<div class="competence-section">
+    <h2>C09 : INSTALLER UN RÉSEAU INFORMATIQUE (30%)</h2>
+    <table class="eval-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Niveau 1<br>Non réalisé</th>
+                <th>Niveau 2<br>Réalisation partielle</th>
+                <th>Niveau 3<br>Réalisation satisfaisante</th>
+                <th>Niveau 4<br>Réalisation très satisfaisante</th>
+            </tr>
+            <tr>
+                <th>Critères d'évaluation de la compétence</th>
+                <th>0 observable</th>
+                <th>1 observable</th>
+                <th>2 à 3 observables</th>
+                <th>4 observables</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Premier critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">20%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Les équipements nécessaires à la réponse au CDC (fourni par le client) sont identifiés</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>Les différents éléments matériels du réseau sont identifiés</li>
+                                <li>Le rôle des différents éléments est explicité.</li>
+                                <li>Un schéma réseau les présente</li>
+                                <li>Les protocoles réseaux et de communication répondant au CDC sont choisis et explicités.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c09-1" value="0" data-weight="20"></td>
+                <td><input type="radio" name="c09-1" value="1" data-weight="20"></td>
+                <td><input type="radio" name="c09-1" value="2.5" data-weight="20"></td>
+                <td><input type="radio" name="c09-1" value="4" data-weight="20"></td>
+            </tr>
+            <!-- Deuxième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">20%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Une procédure de configuration ou d'installation est déterminée ainsi que les points critiques, les procédures étant soumises à validation si nécessaire</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>Les étapes de configuration ou d'installation sont détaillées.</li>
+                                <li>Les paramètres de configuration choisis sont cohérents.</li>
+                                <li>Un plan d'adressage cohérent est rédigé ou complété.</li>
+                                <li>Les enjeux de la cybersécurité sont pris en compte.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c09-2" value="0" data-weight="20"></td>
+                <td><input type="radio" name="c09-2" value="1" data-weight="20"></td>
+                <td><input type="radio" name="c09-2" value="2.5" data-weight="20"></td>
+                <td><input type="radio" name="c09-2" value="4" data-weight="20"></td>
+            </tr>
+            <!-- Troisième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">10%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">La ou les procédures choisies sont suivies</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>La procédure est exécutée, un compte-rendu de l'avancement est effectué.</li>
+                                <li>Les fichiers de configuration sont sauvegardés.</li>
+                                <li>Si la procédure contient des oublis, ils sont identifiés.</li>
+                                <li>Si la procédure échoue, un correctif est proposé.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c09-3" value="0" data-weight="10"></td>
+                <td><input type="radio" name="c09-3" value="1" data-weight="10"></td>
+                <td><input type="radio" name="c09-3" value="2.5" data-weight="10"></td>
+                <td><input type="radio" name="c09-3" value="4" data-weight="10"></td>
+            </tr>
+            <!-- Quatrième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">10%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Les activités sont menées en respectant les règles de sécurité</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>Les niveaux d'habilitation (cybersécurité, électrique, secret ... ) sont identifiés et respectés.</li>
+                                <li>Les politiques de sécurité (des personnes, des données, des réseaux) sont suivies.</li>
+                                <li>Les mises à jour de sécurité, les scripts de mise à jour automatique sont déployés.</li>
+                                <li>Les documents sont protégés, les accès systèmes sont surveillés et protégés.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c09-4" value="0" data-weight="10"></td>
+                <td><input type="radio" name="c09-4" value="1" data-weight="10"></td>
+                <td><input type="radio" name="c09-4" value="2.5" data-weight="10"></td>
+                <td><input type="radio" name="c09-4" value="4" data-weight="10"></td>
+            </tr>
+            <!-- Cinquième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">10%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Un compte-rendu du fonctionnement de l'installation est fourni (anomalies, difficultés et retours clients etc.)</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>Un compte-rendu est rédigé, avec la procédure de configuration complétée.</li>
+                                <li>Le compte rendu des configurations recense les sauvegardes des fichiers de configuration des équipements.</li>
+                                <li>Des schémas de repérage de l'installation sont créés ou complétés.</li>
+                                <li>Un reporting régulier (avancement, points d'étapes, alertes) au client, à la hiérarchie, aux prestataires est effectué.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c09-5" value="0" data-weight="10"></td>
+                <td><input type="radio" name="c09-5" value="1" data-weight="10"></td>
+                <td><input type="radio" name="c09-5" value="2.5" data-weight="10"></td>
+                <td><input type="radio" name="c09-5" value="4" data-weight="10"></td>
+            </tr>
+            <!-- Sixième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">30%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">
+                            - Le style, le ton et la terminologie utilisés sont adaptés à la personne et aux circonstances<br>
+                            - Le travail est effectué selon les attentes exprimées de temps, de quantité ou de qualité<br>
+                            - Le travail est préparé de façon à satisfaire les exigences de qualité, d'efficacité et d'échéancier
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c09-6" value="0" data-weight="30"></td>
+                <td><input type="radio" name="c09-6" value="1" data-weight="30"></td>
+                <td><input type="radio" name="c09-6" value="2.5" data-weight="30"></td>
+                <td><input type="radio" name="c09-6" value="4" data-weight="30"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">
+                    <div class="eval-results">
+                        <span>Total : <span id="total-c09">0</span>/3</span>
+                        <span>Curseur : <span id="curseur-c09">0</span></span>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+<!-- C11 : MAINTENIR UN RÉSEAU INFORMATIQUE -->
+<div class="competence-section">
+    <h2>C11 : MAINTENIR UN RÉSEAU INFORMATIQUE (30%)</h2>
+    <table class="eval-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Niveau 1<br>Non réalisé</th>
+                <th>Niveau 2<br>Réalisation partielle</th>
+                <th>Niveau 3<br>Réalisation satisfaisante</th>
+                <th>Niveau 4<br>Réalisation très satisfaisante</th>
+            </tr>
+            <tr>
+                <th>Critères d'évaluation de la compétence</th>
+                <th>0 observable</th>
+                <th>1 observable</th>
+                <th>2 à 3 observables</th>
+                <th>4 observables</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Premier critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">20%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Les outils logiciels et matériels permettant d'effectuer les tests et l'analyse du système d'information sont identifiés et mis en œuvre selon les spécifications</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>Les outils logiciels et matériels de test sont identifiés.</li>
+                                <li>Les tests sont réalisés dans un ordre logique.</li>
+                                <li>Les tests sont réalisés sans oublis.</li>
+                                <li>Le rapport d'incident est complété avec les résultats.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c11-1" value="0" data-weight="20"></td>
+                <td><input type="radio" name="c11-1" value="1" data-weight="20"></td>
+                <td><input type="radio" name="c11-1" value="2.5" data-weight="20"></td>
+                <td><input type="radio" name="c11-1" value="4" data-weight="20"></td>
+            </tr>
+            <!-- Deuxième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">20%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Les résultats de tests et d'analyse sont interprétés de manière pertinente et les causes de l'incident sont localisées</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>La correspondance outils utilisés / diagnostiques est présentée.</li>
+                                <li>Les résultats des tests sont correctement lus, le niveau de criticité est établi.</li>
+                                <li>Les causes sont localisées, la durée du diagnostic est optimale.</li>
+                                <li>Les procédures de traitement de l'incident sont choisies et réalisées.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c11-2" value="0" data-weight="20"></td>
+                <td><input type="radio" name="c11-2" value="1" data-weight="20"></td>
+                <td><input type="radio" name="c11-2" value="2.5" data-weight="20"></td>
+                <td><input type="radio" name="c11-2" value="4" data-weight="20"></td>
+            </tr>
+            <!-- Troisième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">20%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">L'incident est résolu ou qualifié et escaladé, le service est opérationnel</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>La remise en service est effective, les vérifications de l'état du système sont effectuées.</li>
+                                <li>Une fiche de clôture d'incident est complétée.</li>
+                                <li>Si l'incident demande l'intervention d'un expert, les tests et les causes probables sont succinctement expliqués dans une fiche de suivi d'incident. Si l'incident incombe au technicien, les actions à mener sont identifiées et réalisées.</li>
+                                <li>Une fiche pour la base de connaissance de l'entreprise peut être proposée.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c11-3" value="0" data-weight="20"></td>
+                <td><input type="radio" name="c11-3" value="1" data-weight="20"></td>
+                <td><input type="radio" name="c11-3" value="2.5" data-weight="20"></td>
+                <td><input type="radio" name="c11-3" value="4" data-weight="20"></td>
+            </tr>
+            <!-- Quatrième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">10%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">Le client est correctement informé et conseillé quant aux mesures de prévention possibles</div>
+                        <span class="tooltip-icon">?</span>
+                        <div class="tooltip">
+                            <div class="tooltip-title">Aide au positionnement du niveau :</div>
+                            <ul class="observable-list">
+                                <li>Le client est informé des causes de l'incident.</li>
+                                <li>Le client est informé des mesures de prévention à suivre.</li>
+                                <li>Le client est informé des actions à mener pour éviter la reproduction de l'incident.</li>
+                                <li>Des outils de surveillances, des scripts d'alertes sont proposés.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c11-4" value="0" data-weight="10"></td>
+                <td><input type="radio" name="c11-4" value="1" data-weight="10"></td>
+                <td><input type="radio" name="c11-4" value="2.5" data-weight="10"></td>
+                <td><input type="radio" name="c11-4" value="4" data-weight="10"></td>
+            </tr>
+            <!-- Cinquième critère -->
+            <tr>
+                <td>
+                    <div class="criteria-weight">30%</div>
+                    <div class="criteria-container">
+                        <div class="criteria-text">
+                            - Le style, le ton et la terminologie utilisés sont adaptés à la personne et aux circonstances<br>
+                            - Les risques d'une situation de travail sont repérés et les mesures appropriées pour sa santé, sa sécurité et celle des autres sont adoptées<br>
+                            - Face à un ensemble de faits, des actions appropriées à poser sont décidées
+                        </div>
+                    </div>
+                </td>
+                <td><input type="radio" name="c11-5" value="0" data-weight="30"></td>
+                <td><input type="radio" name="c11-5" value="1" data-weight="30"></td>
+                <td><input type="radio" name="c11-5" value="2.5" data-weight="30"></td>
+                <td><input type="radio" name="c11-5" value="4" data-weight="30"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">
+                    <div class="eval-results">
+                        <span>Total : <span id="total-c11">0</span>/3</span>
+                        <span>Curseur : <span id="curseur-c11">0</span></span>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+        <!-- Note finale -->
+        <div class="final-grade">
+            <div class="bonus-points">
+                <label for="bonus">Points bonus :</label>
+                <input type="number" id="bonus" name="bonus" min="0" max="2" step="0.5" value="0">
+            </div>
+            <div class="total-grade">
+                Note finale : <span id="final-grade">0</span>/20
+            </div>
+        </div>
+
+        <!-- Boutons d'action -->
+        <div class="actions">
+            <button onclick="saveToJSON()" class="btn-save">Sauvegarder en JSON</button>
+            <button onclick="resetForm()" class="btn-reset">Réinitialiser</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // Si la page est chargée sans session définie, utiliser la session par défaut
+        if (!sessionStorage.getItem('current-session')) {
+            const defaultSession = localStorage.getItem('bts-ciel-current-session') || new Date().getFullYear().toString();
+            sessionStorage.setItem('current-session', defaultSession);
+        }
+    </script>
+</body>
+</html>
