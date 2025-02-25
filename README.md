@@ -32,7 +32,6 @@ Ce projet permet de gérer les évaluations des étudiants en BTS CIEL (Cybersé
 ├── 🎨 students.css       # Styles spécifiques à la gestion des étudiants
 ├── 📜 script.js          # Scripts pour l’évaluation
 ├── 📜 studentManager.js  # Gestion des étudiants et stockage des données
-├── ⚙️ diagnostic.js      # (À préciser selon son rôle)
 ```
 
 ## 🚀 Fonctionnement
