@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système d'Évaluation des Étudiants</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Système d'Évaluation des Étudiants</h1>
+            <p>Gestion des évaluations et des notes de l'épreuve E6</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Formulaire d'ajout d'étudiant -->
+        <div class="form-container">
+            <h2 class="form-title">Ajouter un étudiant</h2>
+            <form id="studentForm">
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="lastName">Nom</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="firstName">Prénom</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="studentNumber">Numéro étudiant</label>
+                            <input type="text" id="studentNumber" name="studentNumber" required>
+                        </div>
+                    </div>
+                    <div class="form-col">
+                        <div class="form-group">
+                            <label for="session">Session</label>
+                            <select id="session" name="session" required>
+                                <option value="">Sélectionner une session</option>
+                                <option value="2024-2025">2024-2025</option>
+                                <option value="2025-2026">2025-2026</option>
+                                <option value="2026-2027">2026-2027</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Ajouter l'étudiant</button>
+                    <button type="reset" class="btn btn-warning">Réinitialiser</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Tableau des étudiants -->
+        <!-- Modification à apporter au fichier index.html -->
+<!-- Remplacer les deux div.table-container successifs par ce code -->
+
+<!-- Tableau des étudiants -->
+<div class="table-container">
+    <h2 class="form-title">Liste des étudiants</h2>
+    
+    <!-- Boutons d'export/import -->
+    <div class="table-actions">
+        <button id="export-btn" class="btn btn-primary">Exporter JSON</button>
+        <label for="import-json" class="btn btn-info">Importer JSON</label>
+        <input type="file" id="import-json" style="display: none;" accept=".json">
+    </div>
+    
+    <div id="emptyTableMessage" class="empty-table-message">
+        Aucun étudiant enregistré pour le moment.
+    </div>
+    
+    <table id="studentsTable">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>E6.1 Stage</th>
+                <th>E6.2 R1</th>
+                <th>E6.2 R2</th>
+                <th>E6.2 R3</th>
+                <th>E6.2 Final</th>
+                <th>Moyenne E6</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="studentsTableBody">
+            <!-- Les étudiants seront ajoutés ici -->
+        </tbody>
+    </table>
+</div>
+    </div>
+
+    <!-- Chargement des scripts dans le bon ordre -->
+    <script src="gestion_evaluations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
