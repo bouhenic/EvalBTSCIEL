@@ -32,14 +32,14 @@ Ce projet est une application web permettant la gestion des évaluations des ét
 ## Structure du projet
 
 ```
-/
+/📂
 ├──📄 index.html                # Page principale
 ├──📄 page_evaluation_e6.html    # Page d'évaluation individuelle
 ├──🎨styles.css                 # Feuille de styles CSS
 ├──📜script.js                  # Script général pour les interactions
 ├──📜gestion_evaluations.js      # Gestion des évaluations
 ├──📜evaluation_scripts.js       # Scripts liés aux notes et calculs
-├── data/                      # (optionnel) Stockage des données JSON
+├──📂data/                      # (optionnel) Stockage des données JSON
 ```
 
 ## Fonctionnement
