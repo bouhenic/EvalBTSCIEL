@@ -1,4 +1,4 @@
-# Grille d'évaluations E5 - BTS CIEL
+# Grille d'évaluation E5 - BTS CIEL
 
 Ce projet permet de gérer les évaluations des étudiants en BTS CIEL (Cybersécurité, Informatique et Électronique). Il fournit une interface pour ajouter des étudiants, enregistrer leurs évaluations et exporter/importer les données sous format JSON.
 
