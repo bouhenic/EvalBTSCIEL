@@ -2,7 +2,7 @@
 
 ## Description
 
-Ce projet est une application web permettant la gestion des évaluations des étudiants pour l'épreuve E6 du BTS CIEL (Cybersécurité, Informatique et Réseaux). Elle permet d'ajouter des étudiants, d'enregistrer leurs notes et d'exporter/importer les données sous format JSON.
+Ce projet est une application web permettant la gestion des évaluations des étudiants pour l'épreuve E6 du BTS CIEL (Cybersécurité, Informatique et Réseaux). Elle permet d'ajouter des étudiants, d'enregistrer leurs notes et d'exporter/importer les données sous format JSON. Il fonctionne sur Safari et Chrome. Pour les plus courageux, il reste à l'adapter pour Firefox. En effet, il y a quelques différence de fonctionnement au niveau du localstorage.
 
 ## Fonctionnalités
 
