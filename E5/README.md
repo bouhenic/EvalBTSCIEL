@@ -14,8 +14,8 @@ Ce projet permet de gérer les évaluations des étudiants en BTS CIEL (Cybersé
 
 1. **Cloner le dépôt**
    ```sh
-   git clone https://github.com/votre-utilisateur/nom-du-repo.git
-   cd nom-du-repo
+   git clone https://github.com/bouhenic/EvalBTSCIEL.git
+   cd EvalBTSCIEL/E5
    ```
 
 2. **Ouvrir le projet**
