@@ -1,4 +1,4 @@
-# Systèmes d'évaluation des étudiants - BTS CIEL
+# Évaluation des étudiants - BTS CIEL - Épreuves E5 et E6
 
 ## Présentation
 Ce dépôt contient deux projets distincts pour la gestion des évaluations des étudiants en BTS CIEL (Cybersécurité, Informatique et Réseaux).
