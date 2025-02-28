@@ -1,7 +1,7 @@
 # Évaluation des étudiants - BTS CIEL - Épreuves E5 et E6
 
 ## Présentation
-Ce dépôt contient deux projets distincts pour la gestion des évaluations des étudiants en BTS CIEL (Cybersécurité, Informatique et Réseaux).
+Ce dépôt contient deux projets distincts pour la gestion des évaluations des étudiants en BTS CIEL (Cybersécurité, Informatique et Réseaux). Les grilles originales sont les document Excel fournis au moment de la réforme du BTS CIEL.
 
 ## 1. Grille d'évaluation E6 - BTS CIEL
 ### Description
