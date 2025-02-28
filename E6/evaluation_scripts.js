@@ -199,9 +199,6 @@ function attachEventHandlers() {
     }
 }
 
-/**
- * Mettre à jour l'interface en fonction du type d'évaluation
- */
 function updateEvaluationInterface() {
     // Récupérer le type d'évaluation sélectionné
     const evalType = document.getElementById('evaluationType').value;
