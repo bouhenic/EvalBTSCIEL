@@ -22,8 +22,8 @@ Ce projet est une application web permettant la gestion des évaluations des ét
 
 1. **Cloner le projet**
    ```bash
-   git clone https://github.com/votre-repo/evaluation-bts-ciel.git
-   cd evaluation-bts-ciel
+   git clone https://github.com/bouhenic/EvalBTSCIEL.git
+   cd EvalBTSCIEL/E6
    ```
 2. **Ouvrir le fichier ********`index.html`******** dans un navigateur**
    - L'interface principale permet d'ajouter des étudiants et de gérer leurs évaluations.
